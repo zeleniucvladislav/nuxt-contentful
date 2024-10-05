@@ -24,7 +24,17 @@ export default withNuxt({
         semi: false
       }
     ],
-    '@typescript-eslint/no-var-requires': 'off'
+    '@typescript-eslint/no-var-requires': 'off',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+          normal: 'never',
+          component: 'any'
+        }
+      }
+    ]
   },
   plugins: {
     '@typescript-eslint': typescriptEslint,

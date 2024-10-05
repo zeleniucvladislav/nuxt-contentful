@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { GET_BICYCLES } from '@/queries/bicycles'
+import { GET_BICYCLES } from '@/queries/bycicles'
+import type { Bicycles } from '@/queries/bycicles/types'
 import { ref, onMounted } from 'vue'
 import { useQuery } from '@vue/apollo-composable'
 
-const { result, error, loading } = useQuery(GET_BICYCLES)
-const bicycles = ref({})
+const { result, error, loading } = useQuery<Bicycles>(GET_BICYCLES)
+const bicycles = ref<Bicycles['bicyclesCollection']>()
 
 onMounted(async () => {
   if (result.value?.bicyclesCollection) {
@@ -17,7 +18,7 @@ onMounted(async () => {
     <h1>Bicycles</h1>
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">Error: {{ error.message }}</div>
-    <div v-else>
+    <div v-else-if="bicycles?.items">
       <div v-for="bicycle in bicycles.items" :key="bicycle.model">
         <h2>{{ bicycle.brand }} - {{ bicycle.model }}</h2>
         <p>Type: {{ bicycle.type }}</p>
