@@ -9,7 +9,7 @@ export const GET_BICYCLES = gql`
       items {
         brand
         model
-        type
+        manufacturerYear
         manufacturerPrice
         image {
           url

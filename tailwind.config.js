@@ -10,7 +10,16 @@ export default {
     './error.vue'
   ],
   theme: {
-    extend: {}
+    extend: {
+      gridTemplateColumns: {
+        cards: 'repeat(auto-fill, minmax(20vw, 1fr))'
+      }
+    },
+    spacing: {
+      '30px': '30px',
+      '20px': '20px',
+      '5px': '5px'
+    }
   },
   plugins: []
 }

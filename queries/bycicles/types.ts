@@ -1,4 +1,4 @@
-interface BicycleModel {
+export interface BicycleModel {
   brand: string
   image: {
     url: string
@@ -6,6 +6,7 @@ interface BicycleModel {
     height: number
   }
   manufacturerPrice: number
+  manufacturerYear: number
   model: string
   type: string
 }
