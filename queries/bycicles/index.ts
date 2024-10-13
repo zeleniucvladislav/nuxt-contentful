@@ -11,6 +11,7 @@ export const GET_BICYCLES = gql`
         model
         manufacturerYear
         manufacturerPrice
+        description
         image {
           url
           width

@@ -9,6 +9,7 @@ export interface BicycleModel {
   manufacturerYear: number
   model: string
   type: string
+  description: string
 }
 
 export interface Bicycles {

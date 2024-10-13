@@ -14,13 +14,17 @@ onMounted(async () => {
 })
 </script>
 <template>
-  <main class="bg-gray-100">
+  <main class="bg-gray-100 min-h-[100vh] p-layout">
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">Error: {{ error.message }}</div>
     <div v-else-if="bicycles?.items">
       <h1>{{ bicycles.total }} bikes</h1>
-      <div class="grid grid-cols-cards gap-30px">
-        <BaseCard :bicycles="bicycles.items" />
+      <div class="grid grid-cols-cards gap-[30px]">
+        <BaseCard
+          v-for="bicycle in bicycles.items"
+          :key="bicycle.model"
+          :bicycle="bicycle"
+        />
       </div>
     </div>
   </main>

@@ -11,14 +11,20 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primaryColor: '#845ec2',
+        primaryColorHover: '#673fa6'
+      },
       gridTemplateColumns: {
-        cards: 'repeat(auto-fill, minmax(20vw, 1fr))'
+        cards: 'repeat(auto-fill, minmax(300px, 1fr))'
+      },
+
+      spacing: {
+        layout: '5vw 10vw'
+      },
+      minHeight: {
+        '100vh': '100vh'
       }
-    },
-    spacing: {
-      '30px': '30px',
-      '20px': '20px',
-      '5px': '5px'
     }
   },
   plugins: []
