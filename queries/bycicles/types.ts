@@ -1,4 +1,4 @@
-export interface BicycleModel {
+export interface Bicycle {
   brand: string
   image: {
     url: string
@@ -12,9 +12,9 @@ export interface BicycleModel {
   description: string
 }
 
-export interface Bicycles {
+export interface BicyclesQuery {
   bicyclesCollection: {
-    items: Array<BicycleModel>
+    items: Array<Bicycle>
     limit: number
     skip: number
     total: number

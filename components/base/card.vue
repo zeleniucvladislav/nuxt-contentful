@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BicycleModel } from '@/queries/bycicles/types'
+import type { Bicycle } from '@/queries/bycicles/types'
 
 defineProps<{
-  bicycle: BicycleModel
+  bicycle: Bicycle
 }>()
 </script>
 
