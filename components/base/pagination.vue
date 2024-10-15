@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
 import {
   PaginationEllipsis,
   PaginationFirst,
@@ -21,12 +20,12 @@ import {
       <PaginationFirst
         class="w-9 h-9 flex items-center justify-center disabled:opacity-50 focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded"
       >
-        <Icon icon="radix-icons:double-arrow-left" />
+        <Icon name="radix-icons:double-arrow-left" />
       </PaginationFirst>
       <PaginationPrev
         class="w-9 h-9 flex items-center justify-center mr-4 disabled:opacity-50 focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded"
       >
-        <Icon icon="radix-icons:chevron-left" />
+        <Icon name="radix-icons:chevron-left" />
       </PaginationPrev>
       <template v-for="(page, index) in items">
         <PaginationListItem
@@ -49,12 +48,12 @@ import {
       <PaginationNext
         class="w-9 h-9 flex items-center justify-center ml-4 disabled:opacity-50 focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded"
       >
-        <Icon icon="radix-icons:chevron-right" />
+        <Icon name="radix-icons:chevron-right" />
       </PaginationNext>
       <PaginationLast
         class="w-9 h-9 flex items-center justify-center disabled:opacity-50 focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded"
       >
-        <Icon icon="radix-icons:double-arrow-right" />
+        <Icon name="radix-icons:double-arrow-right" />
       </PaginationLast>
     </PaginationList>
   </PaginationRoot>

@@ -23,6 +23,7 @@
     "vue-tsc": "2.0.29"
   },
   "devDependencies": {
+    "@iconify-json/radix-icons": "^1.2.1",
     "@nuxtjs/apollo": "^5.0.0-alpha.14",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@vue/apollo-composable": "^4.2.1",
