@@ -16,7 +16,7 @@ export default {
         primaryColorHover: '#673fa6'
       },
       gridTemplateColumns: {
-        cards: 'repeat(auto-fill, minmax(300px, 1fr))'
+        cards: 'repeat(auto-fit, minmax(300px, 1fr))'
       },
 
       spacing: {

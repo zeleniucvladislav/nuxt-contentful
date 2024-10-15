@@ -1,8 +1,18 @@
 import gql from 'graphql-tag'
 
 export const GET_BICYCLES = gql`
-  query getBycicles($limit: Int, $skip: Int) {
-    bicyclesCollection(limit: $limit, skip: $skip) {
+  query getBycicles($limit: Int, $skip: Int, $search: String) {
+    bicyclesCollection(
+      limit: $limit
+      skip: $skip
+      where: {
+        OR: [
+          { brand_contains: $search }
+          { model_contains: $search }
+          { description_contains: $search }
+        ]
+      }
+    ) {
       total
       skip
       limit

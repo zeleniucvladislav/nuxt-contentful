@@ -43,27 +43,41 @@ const handlePageChange = (page: number) => {
     skip: pagination.value.skip
   })
 }
+
+const handleSearch = (search: string) => {
+  pagination.value = { ...pagination.value, page: 1, skip: 0 }
+
+  refetch({
+    limit: pagination.value.limit,
+    skip: pagination.value.skip,
+    search
+  })
+}
 </script>
 
 <template>
-  <main class="bg-gray-100 min-h-[100vh] p-layout">
+  <main class="bg-gray-100 min-h-[100vh] p-layout flex flex-col gap-[5vh]">
+    <BaseSearch :handle-search="handleSearch" />
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">Error: {{ error.message }}</div>
     <div v-else-if="bicycles.length">
-      <h1>{{ pagination.total }} bikes</h1>
-      <div class="grid grid-cols-cards gap-[30px]">
-        <BaseCard
-          v-for="bicycle in bicycles"
-          :key="bicycle.model"
-          :bicycle="bicycle"
-        />
-      </div>
-      <BasePagination
-        :page="pagination.page"
-        :total="pagination.total"
-        :items-per-page="pagination.limit"
-        @update:page="handlePageChange"
-      />
+      <section>
+        <h1>{{ pagination.total }} bikes</h1>
+        <div class="grid grid-cols-cards gap-[30px]">
+          <BaseCard
+            v-for="bicycle in bicycles"
+            :key="bicycle.model"
+            :bicycle="bicycle"
+          />
+        </div>
+      </section>
     </div>
+    <BasePagination
+      v-if="bicycles.length"
+      :page="pagination.page"
+      :total="pagination.total"
+      :items-per-page="pagination.limit"
+      @update:page="handlePageChange"
+    />
   </main>
 </template>

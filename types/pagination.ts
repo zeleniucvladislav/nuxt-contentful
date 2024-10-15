@@ -5,4 +5,6 @@ export interface Pagination {
   total: number
 }
 
-export type PaginationGql = Omit<Pagination, 'page' | 'total'>
+export type PaginationGql = Omit<Pagination, 'page' | 'total'> & {
+  search?: string
+}

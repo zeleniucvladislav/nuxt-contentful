@@ -15,7 +15,7 @@ import {
   <PaginationRoot :sibling-count="1" show-edges :default-page="1">
     <PaginationList
       v-slot="{ items }"
-      class="flex justify-center items-center gap-1 text-black pt-[5vh] pb-[5vh]"
+      class="flex justify-center items-center gap-1 text-black"
     >
       <PaginationFirst
         class="w-9 h-9 flex items-center justify-center disabled:opacity-50 focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded"
