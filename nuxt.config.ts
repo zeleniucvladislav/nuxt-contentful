@@ -8,7 +8,9 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/apollo',
     '@nuxt/eslint',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    'radix-vue',
+    'vue3-carousel-nuxt'
   ],
   typescript: {
     typeCheck: true
@@ -18,7 +20,10 @@ export default defineNuxtConfig({
       baseURL: process.env.BASE_URL || 'http://localhost:3000'
     }
   },
-  // @ts-expect-error apollo error
+  // @ts-expect-error tailwind error
+  tailwindcss: {
+    viewer: false
+  },
   apollo: {
     clients: {
       default: {

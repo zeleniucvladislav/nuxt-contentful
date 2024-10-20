@@ -45,7 +45,7 @@ defineProps<{
         <button
           class="self-center w-[100px] p-[10px] bg-primaryColor hover:bg-primaryColorHover text-white transition-all duration-500"
         >
-          Read more
+          <nuxt-link :to="`/bicycle/${bicycle.sys.id}`">Read more</nuxt-link>
         </button>
       </div>
     </div>

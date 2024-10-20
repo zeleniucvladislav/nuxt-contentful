@@ -1,16 +1,3 @@
-<script setup lang="ts">
-import {
-  PaginationEllipsis,
-  PaginationFirst,
-  PaginationLast,
-  PaginationList,
-  PaginationListItem,
-  PaginationNext,
-  PaginationPrev,
-  PaginationRoot
-} from 'radix-vue'
-</script>
-
 <template>
   <PaginationRoot :sibling-count="1" show-edges :default-page="1">
     <PaginationList

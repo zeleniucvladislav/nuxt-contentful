@@ -17,6 +17,9 @@ export const GET_BICYCLES = gql`
       skip
       limit
       items {
+        sys {
+          id
+        }
         brand
         model
         manufacturerYear

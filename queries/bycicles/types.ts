@@ -5,10 +5,12 @@ export interface Bicycle {
     width: number
     height: number
   }
+  sys: {
+    id: number
+  }
   manufacturerPrice: number
   manufacturerYear: number
   model: string
-  type: string
   description: string
 }
 

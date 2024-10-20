@@ -56,15 +56,15 @@ const handleSearch = (search: string) => {
 </script>
 
 <template>
-  <main class="bg-gray-100 min-h-[100vh] p-layout flex flex-col gap-[5vh]">
-    <BaseSearch :handle-search="handleSearch" />
+  <main class="flex flex-col gap-[5vh]">
+    <HomepageSearch :handle-search="handleSearch" />
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">Error: {{ error.message }}</div>
     <div v-else-if="bicycles.length">
       <section>
         <h1>{{ pagination.total }} bikes</h1>
         <div class="grid grid-cols-cards gap-[30px]">
-          <BaseCard
+          <HomepageCard
             v-for="bicycle in bicycles"
             :key="bicycle.model"
             :bicycle="bicycle"
@@ -72,7 +72,7 @@ const handleSearch = (search: string) => {
         </div>
       </section>
     </div>
-    <BasePagination
+    <HomepagePagination
       v-if="bicycles.length"
       :page="pagination.page"
       :total="pagination.total"

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useThrottle, useDebounce } from '@/composables'
+import { useThrottle } from '@/composables/useThrottle'
+import { useDebounce } from '@/composables/useDebounce'
 import { ref } from 'vue'
 
 const debounce = useDebounce()

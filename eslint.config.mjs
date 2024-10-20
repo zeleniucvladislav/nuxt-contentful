@@ -30,7 +30,7 @@ export default withNuxt({
       {
         html: {
           void: 'always',
-          normal: 'never',
+          normal: 'always',
           component: 'any'
         }
       }
