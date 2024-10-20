@@ -1,22 +1,28 @@
 <script setup lang="ts">
+import { useThrottle, useDebounce } from '@/composables'
 import { ref } from 'vue'
+
+const debounce = useDebounce()
+const throttle = useThrottle()
 
 const searchTerm = ref('')
 const props = defineProps<{
   handleSearch: (term: string) => void
 }>()
 
-const onSubmit = (e: Event) => {
-  e.preventDefault()
+const onSubmit = () => {
+  throttle(() => props.handleSearch(searchTerm.value), 500)
+}
 
-  console.log(searchTerm.value, 'searchTerm')
-
-  props.handleSearch(searchTerm.value)
+const onSearch = (event: Event) => {
+  debounce(() => {
+    searchTerm.value = (event.target as HTMLInputElement)?.value
+  }, 200)
 }
 </script>
 
 <template>
-  <form class="w-[min(100%,800px)] h-[50px] mx-auto" @submit="onSubmit">
+  <form class="w-[min(100%,800px)] h-[50px] mx-auto" @submit.prevent="onSubmit">
     <div class="relative">
       <div
         class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
@@ -27,10 +33,11 @@ const onSubmit = (e: Event) => {
         />
       </div>
       <input
-        v-model="searchTerm"
+        :value="searchTerm"
         type="search"
         class="block w-full p-[15px] ps-[40px] text-sm text-gray-900 placeholder-gray-500 border border-gray-300 rounded-full bg-white focus:border-primaryColor outline-none transition-all duration-500"
         placeholder="Search for bikes..."
+        @input="onSearch"
       />
       <button
         type="submit"
