@@ -45,20 +45,8 @@ const getBicycle = (collection: BicyclesQuery['bicyclesCollection']) => {
     >
       <DetailPageGallery :images="bicycle.imagesCollection.items" />
       <DetailPageCharacteristics :bicycle="bicycle" />
-      <div class="text-[18px] text-justify">
-        {{ bicycle.description }}
-      </div>
-      <div>
-        <div class="flex flex-1 items-center">
-          <img
-            :src="bicycle.image.url"
-            :alt="bicycle.model"
-            :width="bicycle.image.width"
-            :height="bicycle.image.height"
-            class="h-full w-full object-contain aspect-video"
-          />
-        </div>
-      </div>
+      <DetailPageDescription :bicycle="bicycle" />
+      <BaseScrollButton url="/" />
     </section>
   </div>
 </template>

@@ -24,7 +24,7 @@ const slideTo = (slide: number) => (currentSlide.value = slide)
           :src="image.url"
           :width="image.width"
           :height="image.height"
-          class="h-full w-full object-contain"
+          class="w-full h-auto max-h-[600px] object-contain"
         />
       </slide>
       <template #addons>
@@ -37,16 +37,16 @@ const slideTo = (slide: number) => (currentSlide.value = slide)
       id="thumbnails"
       ref="carousel"
       v-model="currentSlide"
-      :items-to-show="3"
+      :items-to-show="5"
       :wrap-around="true"
     >
-      <slide v-for="(image, idx) in images" :key="idx">
+      <slide v-for="(image, idx) in images" :key="idx" class="bg-white">
         <div class="carousel__item h-full" @click="slideTo(idx)">
           <img
             :src="image.url"
             :width="image.width"
             :height="image.height"
-            class="h-full w-full"
+            class="h-auto max-h-[100px] w-full object-contain"
           />
         </div>
       </slide>
@@ -55,10 +55,12 @@ const slideTo = (slide: number) => (currentSlide.value = slide)
 </template>
 <style scoped>
 #thumbnails .carousel__slide {
-  @apply mx-[5px];
-  @apply scale-90;
+  @apply p-[10px];
+  @apply border-transparent;
+  @apply border-[1px];
+  @apply transition-all duration-500;
 }
 #thumbnails .carousel__slide--active {
-  @apply scale-100;
+  @apply border-primaryColor;
 }
 </style>
