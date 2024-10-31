@@ -4,13 +4,15 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+  ssr: false,
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/apollo',
     '@nuxt/eslint',
     '@nuxt/icon',
     'radix-vue',
-    'vue3-carousel-nuxt'
+    'vue3-carousel-nuxt',
+    '@nuxt/fonts'
   ],
   typescript: {
     typeCheck: true

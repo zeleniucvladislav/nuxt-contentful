@@ -3,3 +3,9 @@
     <slot />
   </main>
 </template>
+<style>
+:root {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+}
+</style>

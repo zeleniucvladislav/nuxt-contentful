@@ -43,7 +43,7 @@ defineProps<{
           {{ bicycle.description }}
         </p>
         <button
-          class="self-center w-[100px] p-[10px] bg-primaryColor hover:bg-primaryColorHover text-white transition-all duration-500"
+          class="self-center p-[10px] bg-primaryColor hover:bg-primaryColorHover text-white transition-all duration-500"
         >
           <nuxt-link :to="`/bicycle/${bicycle.sys.id}`">Read more</nuxt-link>
         </button>

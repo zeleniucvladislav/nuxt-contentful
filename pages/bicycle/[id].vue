@@ -33,12 +33,15 @@ onBeforeRouteUpdate(async (route) => {
 
 const getBicycle = (collection: BicyclesQuery['bicyclesCollection']) => {
   const { items } = collection
+
   bicycle.value = items[0]
 }
 </script>
 <template>
-  <div v-if="loading">Loading...</div>
-  <div v-else-if="error">Error: {{ error.message }}</div>
+  <div v-if="loading"><BaseLoading /></div>
+  <div v-else-if="error">
+    <BaseNotification error="Something went wrong while getting bicycle" />
+  </div>
   <div v-else-if="bicycle?.model">
     <section
       class="grid desktop:grid-cols-detailed mobile:grid-cols-1 gap-[50px]"
@@ -48,5 +51,8 @@ const getBicycle = (collection: BicyclesQuery['bicyclesCollection']) => {
       <DetailPageDescription :bicycle="bicycle" />
       <BaseScrollButton url="/" />
     </section>
+  </div>
+  <div v-else>
+    <BaseNotification error="Something went wrong while getting bicycle" />
   </div>
 </template>
